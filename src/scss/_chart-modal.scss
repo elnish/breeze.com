@@ -1,0 +1,84 @@
+.chart-modal {
+    display: none;
+    width: 312px;
+    height: 268px;
+    padding: 20px;
+    box-shadow: 0 2px 5px $popupShadowColor;
+    border: 1px solid rgb(224, 224, 224);
+    background-color: $bgColor;
+    &__item {
+        position: relative;
+        margin: 20px 0;
+        &:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    }
+    &__header {
+        color: $popupShadowColor;
+        font-family: $secondFont;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 24.01px;
+        letter-spacing: 0.33px;
+    }
+    &__btn {
+        width: 118px;
+        height: 35px;
+        color: rgb(254, 254, 254);
+        font-family: $mainFont;
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 24.01px;
+        letter-spacing: 0.28px;
+        border: none;
+        outline: none;
+        background-color: $hoverBgColor;
+        border-radius: 2px;
+        margin-right: 10px;
+        cursor: pointer;
+        &:hover {
+            background-color: rgba(26, 136, 139, 0.6);
+        }
+        &_checkout {
+            background-color: $mainFontColor;
+            &:hover {
+                background-color: $popupShadowColor;
+            }
+        }
+    }
+    &__img {
+        width: 56px;
+        height: 56px;
+        float: left;
+        margin-right: 10px;
+    }
+    &__text {
+        max-width: 250px;
+        color: $mainFontColor;
+        font-size: 12px;
+        line-height: 17px;
+        letter-spacing: 0.3px;
+    }
+    &__price {
+        color: $textColor;
+        font-family: 'Bitter', serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+    }
+    &__del {
+        width: 17px;
+        height: 17px;
+        position: absolute;
+        top: 2px;
+        right: 0px;
+        cursor: pointer;
+        &_hover {
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+}

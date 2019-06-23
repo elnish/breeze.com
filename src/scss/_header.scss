@@ -1,0 +1,140 @@
+.header {
+    width: 100%;
+    position: relative;
+    &__bar {
+        @include displayFlex(row, space-between, center);
+        padding: 0 10%;
+        height: 36px;
+        background-color: $barBgColor;
+    }
+    &__contact-img {
+        width: 16px;
+        height: 12px;
+    }
+    &__contact-text {
+        color: $textColor;
+        font-family: $mainFont;
+        font-size: 11px;
+        font-weight: inherit;
+        line-height: 24px;
+        letter-spacing: .28px;
+    }
+    &__welcome-text {
+        font-family: $secondFont;
+        font-size: 12px;
+        font-weight: inherit;
+        line-height: 24px;
+        letter-spacing: .3px;
+    }
+    &__welcome-link {
+        color: $hoverBgColor;
+        letter-spacing: .3px;
+        transition: font-weight .4s ease-in-out;
+        &_hover {
+            &:hover {
+                font-weight: $boldFont;
+            }
+        }
+    }
+    &__change-bar {
+        @include displayFlex(row, space-between, stretch);
+        flex-basis: 220px;
+    }
+    &__content {
+        height: 165px;
+        padding: 0 10%;
+        @include displayFlex(row, space-between, center);
+        border-bottom: 1px solid rgb(224, 224, 224);
+    }
+    &__search-box {
+        height: 35px;
+        width: 227px;
+        position: relative;
+    }
+    &__search-input {
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: 1px solid rgb(204, 204, 204);
+        border-radius: 3px;
+        padding-left: 10px;
+        color: inherit;
+        font-family: $mainFont;
+        font-size: 12px;
+        font-weight: inherit;
+        padding-left: 10px;
+        &_focus {
+            &:focus {
+                @include hoverBorder;
+            }
+        }
+    }
+    &__search-icon {
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        right: 10px;
+        top: 11px;
+        cursor: pointer;
+    }
+    &__user-item {
+        box-sizing: unset;
+        display: inline-block;
+        padding: 7px 15px;
+        text-align: center;
+        border-radius: 2px;
+        transition: background-color .7s ease-in-out;
+        &_hover {
+            &:hover {
+                background-color: $hoverBgColor;
+            }
+        }
+    }
+    &__user-link {
+        color: inherit;
+        font-family: $mainFont;
+        font-size: 12px;
+        font-weight: inherit;
+        letter-spacing: .3px;
+        text-transform: capitalize;
+    }
+    &__separate {
+        display: inline-block;
+        color: inherit;
+    }
+    &__chart-box {
+        display: unset;
+        border-radius: $borderRadius;
+        background-color: rgb(241, 243, 245);
+        padding: 8px 10px;
+        &_active {
+            background-color: $hoverBgColor;
+            .header__chart-text {
+                color: $bgColor;
+            }
+        }
+        &_hover {
+            &:hover {
+                background-color: $liteHoverColor;
+            } 
+        }
+    }
+    &__chart-icon {
+        width: 16px;
+        height: 13px;
+        margin-right: 5px;
+    }
+    &__chart-text {
+        color: $textColor;
+        font-size: 11px;
+        font-weight: inherit;
+        line-height: inherit;
+        letter-spacing: .28px;
+    }
+    &__chart-modal {
+        position: absolute;
+        top: 140px;
+        right: 10%;
+        z-index: 12;
+    }
+}

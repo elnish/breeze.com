@@ -1,0 +1,100 @@
+.slider {
+    height: 480px;
+    width: auto;
+    // background: url(../images/breeze.png) no-repeat;
+    // background-size: cover;
+    position: relative;
+    &__img {
+        width: 100%;
+        vertical-align: middle;
+    }
+    &__item {
+        display: none;
+    }
+    &__text-box {
+        position: absolute;
+        right: 130px;
+        top: 70px;
+    }
+    &__text {
+        display: inline-block;
+        padding: 1px;
+        background-color: rgba(255, 255, 255, 0.7);
+        font-size: 16px;
+        line-height: 30px;
+        color: rgb(34, 34, 34);
+        font-family: $secondFont;
+        font-weight: 400;
+        margin-bottom: 5px;
+        &_header {
+            font-size: 36px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    } 
+    &__btn {
+        cursor: pointer;
+        width: auto;
+        padding: 9px 18px;
+        color: $textColor;
+        background-color: rgba(255, 255, 255, .8);
+        font-weight: 100;
+        font-size: 18px;
+        transition: 0.6s ease;
+        user-select: none;
+        &_prev {
+            position: absolute;
+            left: 0;
+            top: 220px;
+        }
+        &_next {
+            position: absolute;
+            right: 0;
+            top: 220px;
+        }
+        &_hover {
+            &:hover {
+                background-color: rgba(0, 0, 0, .8);
+                color: $bgColor;
+            }
+        }
+    }
+    &__indicate-box {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+    }
+    &__indicate {
+        cursor: pointer;
+        height: 20px;
+        width: 20px;
+        margin: 0 2px;
+        background-color: rgba(0, 0, 0, .6);
+        border: 5px solid rgba(255, 255, 255, .8);
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color .6s ease,  border .6s ease;
+        &_current, &_hover:hover {
+            background-color: rgba(255, 255, 255, .6);
+            border: 5px solid rgba(0, 0, 0, .8);
+        }
+    }
+}
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}

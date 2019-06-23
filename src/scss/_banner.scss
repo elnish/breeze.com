@@ -1,0 +1,38 @@
+.banner {
+    padding: 25px 10%;
+    display: flex;
+    justify-content: space-between;
+    &__item {
+        flex-basis: 310px;
+        height: 101px;
+        border: 1px solid rgb(224, 224, 224);
+        border-radius: 4px;
+    }
+    &__img {
+        margin: 15px;
+        float: left;
+        width: 75px;
+        height: 75px;
+        &_large {
+            margin: 0;
+            width: 101px;
+            height: 99px;
+        }
+    }
+    &__header {
+        color: $textColor;
+        font-family: $secondFont;
+        font-size: 24px;
+        font-weight: inherit;
+        line-height: 28px;
+        letter-spacing: 0.6px;
+        padding: 28px 0 5px 3px;
+    }
+    &__text {
+        color: $mainFontColor;
+        font-family: $mainFont;
+        font-size: 20px;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+    }
+}

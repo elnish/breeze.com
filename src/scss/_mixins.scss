@@ -1,0 +1,11 @@
+@mixin displayFlex($direction, $justifyCont, $alignItems) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justifyCont;
+    align-items: $alignItems;
+}
+
+@mixin hoverBorder {
+    border: 1px solid $hoverBgColor;
+    box-shadow: 0 1px 5px $hoverShadowColor;
+}
