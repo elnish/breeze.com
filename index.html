@@ -8,40 +8,42 @@
     <link rel="shortcut icon" href="./src/images/fv.png" type="image/png">
     <link rel="stylesheet" href="./src/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Bitter|Noto+Sans+HK&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-i18n/dist/vue-i18n.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="app">
         <header class="container__header header">
             <div class="header__bar">
                 <div class="header__contact-box">
                     <img src="./src/images/icon_phone.png" alt="phone" class="header__contact-img">
-                    <span class="header__contact-text">Call Us +777 (100) 1234</span>
+                    <span class="header__contact-text">{{ $t("call") }} +777 (100) 1234</span>
                 </div>
                 <p class="header__welcome-text">
-                    Welcome visitor you can 
-                    <a href="#" class="header__welcome-link header__welcome-link_hover">login</a>  or 
-                    <a href="" class="header__welcome-link header__welcome-link_hover">create an account</a>.
+                    {{ $t("welcome.welcome") }}  
+                    <a href="#" class="header__welcome-link header__welcome-link_hover">{{ $t("welcome.login") }} </a>  {{ $t("welcome.or") }} 
+                    <a href="" class="header__welcome-link header__welcome-link_hover">{{ $t("welcome.create") }}</a>.
                 </p>
                 <div class="header__change-bar">
                     <ul class="header__change-list change-list">
-                        <li class="change-list__item change-list__item_hover change-list__item_active">
+                        <li class="change-list__item change-list__item_hover change-list__item_active" @click="setLang('en')">
                             <a href="#" hreflang="en" class="change-list__link">EN</a>
                         </li>
-                        <li class="change-list__item change-list__item_hover">
+                        <li class="change-list__item change-list__item_hover" @click="setLang('fr')">
                             <a href="#" hreflang="en" class="change-list__link">FR</a>
                         </li>
-                        <li class="change-list__item change-list__item_hover">
+                        <li class="change-list__item change-list__item_hover" @click="setLang('gm')">
                             <a href="#" hreflang="en" class="change-list__link">GM</a>
                         </li>
                     </ul>
                     <ul class="header__change-list change-list">
-                        <li class="change-list__item change-list__item_thin change-list__item_hover change-list__item_active">
+                        <li class="change-list__item change-list__item_thin change-list__item_hover change-list__item_active" @click="setCarrency('en-US')"> 
                             <a href="#" class="change-list__link">&#36;</a>
                         </li>
-                        <li class="change-list__item change-list__item_thin change-list__item_hover">
+                        <li class="change-list__item change-list__item_thin change-list__item_hover" @click="setCarrency('de-DE')">
                             <a href="#" class="change-list__link">&euro;</a>
                         </li>
-                        <li class="change-list__item change-list__item_thin change-list__item_hover">
+                        <li class="change-list__item change-list__item_thin change-list__item_hover" @click="setCarrency('en-GB')">
                             <a href="#" class="change-list__link">&pound;</a>
                         </li>
                     </ul>
@@ -50,29 +52,29 @@
             <div class="header__content">
                 <img src="./src/images/logo.png" alt="logo" class="header__logo">
                 <div class="header__search-box">
-                    <input class="header__search-input header__search-input_focus" type="search" name="search" placeholder="Search entire store here...">
+                    <input class="header__search-input header__search-input_focus" type="search" name="search" :placeholder="$t('placeholder')">
                     <img class="header__search-icon" src="./src/images/search.png" alt="search">
                 </div>
                 <ul class="header__user-menu">
-                    <li class="header__user-item header__user-item_hover"><a href="#" class="header__user-link">my account</a></li>
+                    <li class="header__user-item header__user-item_hover"><a href="#" class="header__user-link">{{ $t("userMenu.account") }}</a></li>
                     <span class="header__separate">|</span>
-                    <li class="header__user-item header__user-item_hover"><a href="#" class="header__user-link">my wishlist</a></li>
+                    <li class="header__user-item header__user-item_hover"><a href="#" class="header__user-link">{{ $t("userMenu.wishlist") }}</a></li>
                     <span class="header__separate">|</span>
-                    <li class="header__user-item header__user-item_hover header__user-item_logIn"><a href="#" class="header__user-link">log in</a></li>
+                    <li class="header__user-item header__user-item_hover header__user-item_logIn"><a href="#" class="header__user-link">{{ $t("userMenu.login") }}</a></li>
                     <span class="header__separate">|</span>
-                    <li class="header__user-item header__user-item_hover header__user-item_singUp"><a href="#" class="header__user-link">sing up</a></li>
+                    <li class="header__user-item header__user-item_hover header__user-item_singUp"><a href="#" class="header__user-link">{{ $t("userMenu.singup") }}</a></li>
                     <li class=""><a href="#" class="header__chart-box  header__chart-box_hover">
                             <img class="header__chart-icon" src="./src/images/icon_cart.png" alt="cart">
-                            <span class="header__chart-text">Cart $0.00</span>
+                            <span class="header__chart-text">{{ $t("cartModal.cart") }} {{ $n(0, 'currency') }}</span>
                     </a></li>
                 </ul> 
                 <div class="header__chart-modal chart-modal">
-                    <p class="chart-modal__header">Recently added item(s)</p>
+                    <p class="chart-modal__header">{{ $t("cartModal.header") }}</p>
                     
                     <div class="chart-modal__item">
                         <img src="./src/images/img1.png" alt="img" class="chart-modal__img">
                         <div class="chart-modal__text-block">
-                            <p class="chart-modal__text">Faddywax Fragrance Diffuser Set Gardenia</p>
+                            <p class="chart-modal__text">{{ $t("cartModal.prod1") }}</p>
                             <p class="chart-modal__price">1 x $399.00</p>
                         </div>
                         <img src="./src/images/del.png" alt="delete" class="chart-modal__del chart-modal__del_hover">
@@ -81,91 +83,88 @@
                     <div class="chart-modal__item">
                         <img src="./src/images/img2.png" alt="img" class="chart-modal__img">
                         <div class="chart-modal__text-block">
-                            <p class="chart-modal__text">Caldrea Linen and Room Spray</p>
+                            <p class="chart-modal__text">{{ $t("cartModal.prod2") }}</p>
                             <p class="chart-modal__price">1 x $123.00</p>
                         </div>
                         <img src="./src/images/del.png" alt="delete" class="chart-modal__del chart-modal__del_hover">
                     </div>
-                    <button class="chart-modal__btn">View shopping cart</button>
-                    <button class="chart-modal__btn chart-modal__btn_checkout">Proceed to Checkout</button>
+                    <button class="chart-modal__btn">{{ $t("cartModal.btn1") }}</button>
+                    <button class="chart-modal__btn chart-modal__btn_checkout">{{ $t("cartModal.btn2") }}</button>
                 </div>    
             </div>
             
         </header>
       
         <form class="container__popup popup popup__singUp">
-            <h2 class="popup__header">Sign Up</h2>
+            <h2 class="popup__header">{{ $t("form.header1") }}</h2>
             <p class="popup__item">
-                <label for="Email" class="popup__label">Email</label>
+                <label for="Email" class="popup__label">{{ $t("form.email") }}</label>
                 <input class="popup__input popup__input_text" id="Email" name="Email" type="text">
             </p>
             <p class="popup__item">
-                <label for="password" class="popup__label">Password</label>
+                <label for="password" class="popup__label">{{ $t("form.password") }}</label>
                 <input class="popup__input popup__input_password" id="password" name="password" type="password">
             </p>
             <p class="popup__item">
-                <label for="confirm_password" class="popup__label">Confirm Password</label>
+                <label for="confirm_password" class="popup__label">{{ $t("form.confirm") }}</label>
                 <input class="popup__input popup__input_password" id="confirm_password" name="password" type="password">
             </p>
             <p class="popup__item">
-                <input class="popup__button popup__button_hover" type="submit" value="Create My Account" id="submit">
+                <button class="popup__button popup__button_hover" type="submit">{{ $t("form.btn1") }}</button>
             </p>
             <img src="./src/images/del.png" alt="close" class="popup__close popup__close_hover">
         </form>
         <form class="container__popup popup popup__logIn">
-            <h2 class="popup__header">Log In</h2>
+            <h2 class="popup__header">{{ $t("form.header2") }}</h2>
             <p class="popup__item">
-                <label for="Email" class="popup__label">Email</label>
+                <label for="Email" class="popup__label">{{ $t("form.email") }}</label>
                 <input class="popup__input popup__input_text" id="Email" name="Email" type="text">
             </p>
             <p class="popup__item">
-                <label for="password" class="popup__label">Password</label>
+                <label for="password" class="popup__label">{{ $t("form.password") }}</label>
                 <input class="popup__input popup__input_password" id="password" name="password" type="password">
             </p>
-                <input class="popup__button popup__button_hover" type="submit" value="Log In To My Account" id="submit">
+                <button class="popup__button popup__button_hover" type="submit">{{ $t("form.btn2") }}</button>
             </p>
             <img src="./src/images/del.png" alt="close" class="popup__close popup__close_log popup__close_hover">
         </form>
         <nav class="container__menu menu">
             <ul class="menu__list">
-                <li class="menu__item menu__item_active menu__item_hover"><a href="#" class="menu__link">Home</a></li>
-                <li class="menu__item menu__item_hover"><a href="#" class="menu__link">Solids</a></li>
-                <li class="menu__item menu__item_hover"><a href="#" class="menu__link">Liquids</a></li>
-                <li class="menu__item menu__item_hover"><a href="#" class="menu__link">Spray</a></li>
-                <li class="menu__item menu__item_hover menu__item_large"><a href="#" class="menu__link">Electrics</a></li>
-                <li class="menu__item menu__item_hover menu__item_large"><a href="#" class="menu__link">For cars</a></li>
+                <li class="menu__item menu__item_active menu__item_hover"><a href="#" class="menu__link">{{ $t("menu.1") }}</a></li>
+                <li class="menu__item menu__item_hover"><a href="#" class="menu__link">{{ $t("menu.2") }}</a></li>
+                <li class="menu__item menu__item_hover"><a href="#" class="menu__link">{{ $t("menu.3") }}</a></li>
+                <li class="menu__item menu__item_hover"><a href="#" class="menu__link">{{ $t("menu.4") }}</a></li>
+                <li class="menu__item menu__item_hover"><a href="#" class="menu__link">{{ $t("menu.5") }}</a></li>
+                <li class="menu__item menu__item_hover"><a href="#" class="menu__link">{{ $t("menu.6") }}</a></li>
             </ul>
         </nav>
         <main class="container__main-content">
-            <!-- Slide container -->
             <div class="container__slider slider">
-                <!-- Slide item -->
                 <div class="slider__item fade">
                     <img src="./src/images/breeze.png" alt="banner" class="slider__img">
                     <div class="slider__text-box">
-                        <h1 class="slider__text slider__text_header">Breeze Noticeables</h1><br/>
-                        <p class="slider__text">The new series of natural air fresheners.</p><br/>
-                        <p class="slider__text">Febreze Noticeables Meadows & Rain</p><br/>
-                        <p class="slider__text">Air Freshener Refill.</p><br/>
+                        <h1 class="slider__text slider__text_header">{{ $t("slider.header") }}</h1><br/>
+                        <p class="slider__text">{{ $t("slider.text1") }}</p><br/>
+                        <p class="slider__text">{{ $t("slider.text2") }}</p><br/>
+                        <p class="slider__text">{{ $t("slider.text3") }}</p><br/>
                     </div>
                 </div>
-                <!-- Slide item -->
                 <div class="slider__item fade">
                     <img src="./src/images/breeze.png" alt="banner" class="slider__img">
                     <div class="slider__text-box">
-                        <h1 class="slider__text slider__text_header">Breeze Noticeables 2</h1><br/>
-                        <p class="slider__text">The new series of natural air fresheners.</p><br/>
-                        <p class="slider__text">Febreze Noticeables Meadows & Rain</p><br/>
-                        <p class="slider__text">Air Freshener Refill.</p><br/>
+                        <h1 class="slider__text slider__text_header">{{ $t("slider.header") }} 2</h1><br/>
+                        <p class="slider__text">{{ $t("slider.text1") }}</p><br/>
+                        <p class="slider__text">{{ $t("slider.text2") }}</p><br/>
+                        <p class="slider__text">{{ $t("slider.text3") }}</p><br/>
                     </div>
                 </div>
                  <div class="slider__item fade">
                     <img src="./src/images/breeze.png" alt="banner" class="slider__img">
                     <div class="slider__text-box">
-                        <h1 class="slider__text slider__text_header">Breeze Noticeables 3</h1><br/>
-                        <p class="slider__text">The new series of natural air fresheners.</p><br/>
-                        <p class="slider__text">Febreze Noticeables Meadows & Rain</p><br/>
-                        <p class="slider__text">Air Freshener Refill.</p><br/>
+                        <h1 class="slider__text slider__text_header">{{ $t("slider.header") }} 3</h1><br/>
+                        <p class="slider__text">{{ $t("slider.text1") }}</p><br/>
+                        <p class="slider__text">{{ $t("slider.text2") }}</p><br/>
+                        <p class="slider__text">{{ $t("slider.text3") }}</p><br/>
                     </div>
                 </div>
                  <a class="slider__btn slider__btn_prev slider__btn_hover">&#10094;</a>
@@ -180,28 +179,28 @@
                 <div class="banner__item">
                     <img src="./src/images/icon-sale.png" alt="sale" class="banner__img">
                     <div class="banner__text-block">
-                        <h4 class="banner__header">Best price</h4>
-                        <p class="banner__text">this week</p>
+                        <h4 class="banner__header">{{ $t("banner.header1") }}</h4>
+                        <p class="banner__text">{{ $t("banner.text1") }}</p>
                     </div> 
                 </div>
                 <div class="banner__item">
                     <img src="./src/images/br.png" alt="smells" class="banner__img banner__img_large">
                     <div class="banner__text-block">
-                        <h4 class="banner__header">New smells</h4>
-                        <p class="banner__text">in the next series</p>
+                        <h4 class="banner__header">{{ $t("banner.header2") }}</h4>
+                        <p class="banner__text">{{ $t("banner.text2") }}</p>
                     </div> 
                 </div>
                 <div class="banner__item">
                     <img src="./src/images/icon1.png" alt="air" class="banner__img">
                     <div class="banner__text-block">
-                        <h4 class="banner__header">Only natural</h4>
-                        <p class="banner__text">air fresheners</p>
+                        <h4 class="banner__header">{{ $t("banner.header3") }}</h4>
+                        <p class="banner__text">{{ $t("banner.text3") }}</p>
                     </div> 
                 </div>
             </div>
         </main>
     </div>
-
+    <script src="./src/scripts/index.js"></script>
     <script src="./src/scripts/popup.js"></script>
     <script src="./src/scripts/slider.js"></script>
 </body>

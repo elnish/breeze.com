@@ -5,14 +5,11 @@
         background-color: $barBgColor;
     }
     &__item {
-        width: 90px;
+        width: auto;
         height: 100%;
         text-align: center;
-        padding-top: 15px;
+        padding: 15px;
         transition: background-color 1s ease-in-out;
-        &_large {
-            width: 120px;
-        }
         &_active {
             background-color: $hoverBgColor;
             .menu__link {

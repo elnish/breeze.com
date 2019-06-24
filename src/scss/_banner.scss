@@ -2,11 +2,12 @@
     padding: 25px 10%;
     display: flex;
     justify-content: space-between;
+    vertical-align: middle;
     &__item {
         flex-basis: 310px;
-        height: 101px;
         border: 1px solid rgb(224, 224, 224);
         border-radius: 4px;
+        position: relative;
     }
     &__img {
         margin: 15px;
@@ -14,10 +15,17 @@
         width: 75px;
         height: 75px;
         &_large {
-            margin: 0;
+            margin: 0 15px;
             width: 101px;
             height: 99px;
         }
+    }
+    &__text-block {
+       position: absolute;
+       top: 50%;
+       left: 40%;
+       transform: translate(0, -50%);
+
     }
     &__header {
         color: $textColor;
@@ -26,7 +34,6 @@
         font-weight: inherit;
         line-height: 28px;
         letter-spacing: 0.6px;
-        padding: 28px 0 5px 3px;
     }
     &__text {
         color: $mainFontColor;
