@@ -45,3 +45,25 @@ cart.addEventListener('click', showModal);
 for(let i = 0; i < btn.length; i++) {
     btn[i].addEventListener('click', closeModal);
 }
+
+//change color
+
+var changeLang = document.querySelectorAll(".header__change-list")[0];
+var btns = changeLang.getElementsByClassName("change-list__item");
+for (let i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("change-list__item_active");
+  current[0].className = current[0].className.replace(" change-list__item_active", "");
+  this.className += " change-list__item_active";
+  });
+}
+
+//humburger
+let hamburger = document.querySelector(".hamburger");
+let menu = document.querySelector(".menu__list");
+
+
+hamburger.addEventListener("click", function() {
+    hamburger.classList.toggle("is-active"); 
+    menu.classList.toggle("menu__list_show"); 
+});

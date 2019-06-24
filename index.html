@@ -36,11 +36,12 @@
                             <a href="#" hreflang="en" class="change-list__link">GM</a>
                         </li>
                     </ul>
+                    
                     <ul class="header__change-list change-list">
                         <li class="change-list__item change-list__item_thin change-list__item_hover change-list__item_active" @click="setCarrency('en-US')"> 
                             <a href="#" class="change-list__link">&#36;</a>
                         </li>
-                        <li class="change-list__item change-list__item_thin change-list__item_hover" @click="setCarrency('de-DE')">
+                        <li class="change-list__item change-list__item_thin change-list__item_hover" @click="setCarrency('de-DE')"> 
                             <a href="#" class="change-list__link">&euro;</a>
                         </li>
                         <li class="change-list__item change-list__item_thin change-list__item_hover" @click="setCarrency('en-GB')">
@@ -129,6 +130,11 @@
             <img src="./src/images/del.png" alt="close" class="popup__close popup__close_log popup__close_hover">
         </form>
         <nav class="container__menu menu">
+            <button class="menu__hamburger hamburger hamburger_emphatic" type="button">
+                <span class="hamburger__box">
+                    <span class="hamburger__inner"></span>
+                </span>
+            </button>
             <ul class="menu__list">
                 <li class="menu__item menu__item_active menu__item_hover"><a href="#" class="menu__link">{{ $t("menu.1") }}</a></li>
                 <li class="menu__item menu__item_hover"><a href="#" class="menu__link">{{ $t("menu.2") }}</a></li>
@@ -137,7 +143,9 @@
                 <li class="menu__item menu__item_hover"><a href="#" class="menu__link">{{ $t("menu.5") }}</a></li>
                 <li class="menu__item menu__item_hover"><a href="#" class="menu__link">{{ $t("menu.6") }}</a></li>
             </ul>
+            
         </nav>
+        
         <main class="container__main-content">
             <div class="container__slider slider">
                 <div class="slider__item fade">
@@ -200,8 +208,9 @@
             </div>
         </main>
     </div>
-    <script src="./src/scripts/index.js"></script>
+    <script src="./src/scripts/i18n.js"></script>
     <script src="./src/scripts/popup.js"></script>
     <script src="./src/scripts/slider.js"></script>
+  
 </body>
 </html>

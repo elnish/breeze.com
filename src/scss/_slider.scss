@@ -1,8 +1,6 @@
 .slider {
-    height: 480px;
+    max-height: 480px;
     width: auto;
-    // background: url(../images/breeze.png) no-repeat;
-    // background-size: cover;
     position: relative;
     &__img {
         width: 100%;
@@ -13,8 +11,8 @@
     }
     &__text-box {
         position: absolute;
-        right: 130px;
-        top: 70px;
+        right: 10%;
+        top: 15%;
     }
     &__text {
         display: inline-block;
@@ -42,15 +40,16 @@
         font-size: 18px;
         transition: 0.6s ease;
         user-select: none;
+        margin-top: -22px;
         &_prev {
             position: absolute;
             left: 0;
-            top: 220px;
+            top: 50%;
         }
         &_next {
             position: absolute;
             right: 0;
-            top: 220px;
+            top: 50%;
         }
         &_hover {
             &:hover {
@@ -61,8 +60,8 @@
     }
     &__indicate-box {
         position: absolute;
-        right: 20px;
-        bottom: 20px;
+        right: 5%;
+        bottom: 10%;
     }
     &__indicate {
         cursor: pointer;
@@ -98,3 +97,58 @@
     from {opacity: .4} 
     to {opacity: 1}
 }
+
+@media only screen and (max-width: 860px) {
+    .slider {
+        &__btn {
+            font-size: 14px;
+        }
+        &__text {
+            font-size: 14px;
+            &_header {
+                font-size: 28px;
+            }
+        }
+    }
+  }
+
+  @media only screen and (max-width: 660px) {
+    .slider {
+        &__text-box {
+            right: 5%;
+            top: 5%;
+        }
+        &__btn {
+            font-size: 12px;
+            padding: 6px 14px;
+        }
+        &__text {
+            font-size: 13px;
+            line-height: 20px;
+            &_header {
+                font-size: 22px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+  }
+
+  @media only screen and (max-width: 560px) {
+    .slider {
+        &__text-box {
+            right: 10%;
+            top: 5%;
+        }
+        &__btn {
+            font-size: 12px;
+            padding: 5px 12px;
+        }
+        &__text {
+            display: none;
+            &_header {
+                font-size: 14px;
+                display: block;
+            }
+        }
+    }
+  }

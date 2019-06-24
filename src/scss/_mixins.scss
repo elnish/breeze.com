@@ -9,3 +9,14 @@
     border: 1px solid $hoverBgColor;
     box-shadow: 0 1px 5px $hoverShadowColor;
 }
+
+@mixin inner {
+    width: 40px;
+    height: 4px;
+    background-color: $hoverBgColor;
+    border-radius: 4px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+}

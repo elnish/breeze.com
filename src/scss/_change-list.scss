@@ -32,3 +32,21 @@
     }
    
 }
+
+
+@media only screen and (max-width: 1100px) {
+    .change-list {
+        margin-right: 20px;
+        &__item {
+            margin-right: 5px;
+        }
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    .change-list {
+        &__link {
+            font-size: 16px;
+        }
+    }
+}

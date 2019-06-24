@@ -1,3 +1,4 @@
+//i18n
 const messages = {
     en: {
         call: 'Call Us',
@@ -63,7 +64,7 @@ const messages = {
             or: 'oder',
             create: 'ein Konto erstellen'
         },
-        placeholder: 'Search eDurchsuche hier den gesamten Laden...',
+        placeholder: 'Durchsuche hier den gesamten...',
         userMenu: {
             account: 'mein Konto',
             wishlist: 'Meine Wunschliste',
@@ -192,14 +193,27 @@ const messages = {
   })
   
 
-  new Vue({
+//   new Vue({
+//     i18n,
+//     methods: {
+//         // setLang(lang) {
+//         //     i18n.locale = lang
+//         // },
+//         setCarrency(cash) {
+//             i18n.locale = cash
+//         }
+//     }
+//   }).$mount('#app')
+new Vue({
     i18n,
     methods: {
-        setLang(lang) {
+        setLang( lang) {
+            alert( lang)
             i18n.locale = lang
         },
-        // setCarrency(cash) {
-        //     i18n.locale = cash
-        // }
+        setCarrency ( cash) {
+        		alert( cash)
+            i18n.locale = cash
+        }
     }
   }).$mount('#app')

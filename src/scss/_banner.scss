@@ -3,6 +3,7 @@
     display: flex;
     justify-content: space-between;
     vertical-align: middle;
+    flex-wrap: wrap;
     &__item {
         flex-basis: 310px;
         border: 1px solid rgb(224, 224, 224);
@@ -25,7 +26,6 @@
        top: 50%;
        left: 40%;
        transform: translate(0, -50%);
-
     }
     &__header {
         color: $textColor;
@@ -41,5 +41,29 @@
         font-size: 20px;
         font-weight: 300;
         letter-spacing: 0.5px;
+    }
+}
+
+@media (min-width: 430px) and (max-width: 1200px) {
+    .banner {
+        justify-content: center;
+        &__item {
+            margin: 25px;
+        }
+    }
+}
+
+@media (min-width: 320px) and (max-width: 429px) {
+    .banner {
+        justify-content: center;
+        &__item {
+            margin: 10px auto;
+        }
+        &__text-block {
+            position: absolute;
+            top: 50%;
+            left: 45%;
+            transform: translate(0, -50%);
+        }
     }
 }
