@@ -208,20 +208,18 @@
             width: 100%;
         }
         &__user-item {
-            // box-sizing: unset;
             display: block;
-            // padding: 7px 15px;
-            
-           
         }
         &__user-link {
-       
             font-size: 16px;
-        
         }
         &__separate {
             display: none;
-            
+        }
+        &__chart-box {
+            position: absolute;
+            right: 10%;
+            margin-top: 10px;
         }
     }
 }

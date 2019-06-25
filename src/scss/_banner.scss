@@ -44,7 +44,7 @@
     }
 }
 
-@media (min-width: 430px) and (max-width: 1200px) {
+@media only screen and (max-width: 1200px) {
     .banner {
         justify-content: center;
         &__item {
@@ -53,9 +53,8 @@
     }
 }
 
-@media (min-width: 320px) and (max-width: 429px) {
+@media only screen and (max-width: 429px) {
     .banner {
-        justify-content: center;
         &__item {
             margin: 10px auto;
         }

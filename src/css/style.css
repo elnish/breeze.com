@@ -235,7 +235,11 @@ body {
   .header__user-link {
     font-size: 16px; }
   .header__separate {
-    display: none; } }
+    display: none; }
+  .header__chart-box {
+    position: absolute;
+    right: 10%;
+    margin-top: 10px; } }
 
 .change-list__item {
   width: 35px;
@@ -631,25 +635,22 @@ body {
     font-weight: 300;
     letter-spacing: 0.5px; }
 
-@media (min-width: 430px) and (max-width: 1200px) {
+@media only screen and (max-width: 1200px) {
   .banner {
     -webkit-box-pack: center;
             justify-content: center; }
     .banner__item {
       margin: 25px; } }
 
-@media (min-width: 320px) and (max-width: 429px) {
-  .banner {
-    -webkit-box-pack: center;
-            justify-content: center; }
-    .banner__item {
-      margin: 10px auto; }
-    .banner__text-block {
-      position: absolute;
-      top: 50%;
-      left: 45%;
-      -webkit-transform: translate(0, -50%);
-              transform: translate(0, -50%); } }
+@media only screen and (max-width: 429px) {
+  .banner__item {
+    margin: 10px auto; }
+  .banner__text-block {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%); } }
 
 .popup {
   display: none;
@@ -795,3 +796,26 @@ body {
     .chart-modal__del_hover:hover {
       -webkit-transform: scale(1.2);
               transform: scale(1.2); }
+
+@media only screen and (max-width: 640px) {
+  .chart-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto; }
+    .chart-modal__header {
+      font-size: 16px; }
+    .chart-modal__btn {
+      width: 45%;
+      font-size: 16px; }
+    .chart-modal__text {
+      font-size: 14px; } }
+
+@media only screen and (max-width: 420px) {
+  .chart-modal {
+    height: auto; }
+    .chart-modal__btn {
+      width: 100%;
+      margin-bottom: 15px; } }

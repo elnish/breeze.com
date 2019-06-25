@@ -82,3 +82,34 @@
         }
     }
 }
+
+@media only screen and (max-width: 640px) {
+    .chart-modal {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: auto;
+        &__header {
+            font-size: 16px;
+        }
+        &__btn {
+            width: 45%;
+            font-size: 16px;
+        }
+        &__text {
+            font-size: 14px;
+        }
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .chart-modal {
+        height: auto;
+        &__btn {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+    }
+}
