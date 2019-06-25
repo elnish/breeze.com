@@ -21,7 +21,7 @@
                 </div>
                 <p class="header__welcome-text">
                     {{ $t("welcome.welcome") }}  
-                    <a href="#" class="header__welcome-link header__welcome-link_hover">{{ $t("welcome.login") }} </a>  {{ $t("welcome.or") }} 
+                    <a href="" class="header__welcome-link header__welcome-link_hover">{{ $t("welcome.login") }} </a>  {{ $t("welcome.or") }} 
                     <a href="" class="header__welcome-link header__welcome-link_hover">{{ $t("welcome.create") }}</a>.
                 </p>
                 <div class="header__change-bar">
@@ -61,9 +61,9 @@
                     <span class="header__separate">|</span>
                     <li class="header__user-item header__user-item_hover"><a href="#" class="header__user-link">{{ $t("userMenu.wishlist") }}</a></li>
                     <span class="header__separate">|</span>
-                    <li class="header__user-item header__user-item_hover header__user-item_logIn"><a href="#" class="header__user-link">{{ $t("userMenu.login") }}</a></li>
+                    <li class="header__user-item header__user-item_hover header__user-item_logIn"><a href="#" class="header__user-link" data-modal="1">{{ $t("userMenu.login") }}</a></li>
                     <span class="header__separate">|</span>
-                    <li class="header__user-item header__user-item_hover header__user-item_singUp"><a href="#" class="header__user-link">{{ $t("userMenu.singup") }}</a></li>
+                    <li class="header__user-item header__user-item_hover header__user-item_singUp"><a href="#" class="header__user-link" data-modal="2">{{ $t("userMenu.singup") }}</a></li>
                     <li class=""><a href="#" class="header__chart-box  header__chart-box_hover">
                             <img class="header__chart-icon" src="./src/images/icon_cart.png" alt="cart">
                             <span class="header__chart-text">{{ $t("cartModal.cart") }} {{ $n(0, 'currency') }}</span>
@@ -96,7 +96,7 @@
             
         </header>
       
-        <form class="container__popup popup popup__singUp">
+        <form class="container__popup popup popup__singUp" data-modal="1">
             <h2 class="popup__header">{{ $t("form.header1") }}</h2>
             <p class="popup__item">
                 <label for="Email" class="popup__label">{{ $t("form.email") }}</label>
@@ -115,7 +115,7 @@
             </p>
             <img src="./src/images/del.png" alt="close" class="popup__close popup__close_hover">
         </form>
-        <form class="container__popup popup popup__logIn">
+        <form class="container__popup popup popup__logIn" data-modal="2">
             <h2 class="popup__header">{{ $t("form.header2") }}</h2>
             <p class="popup__item">
                 <label for="Email" class="popup__label">{{ $t("form.email") }}</label>
@@ -129,6 +129,7 @@
             </p>
             <img src="./src/images/del.png" alt="close" class="popup__close popup__close_log popup__close_hover">
         </form>
+        <div class="popup__overlay"></div>
         <nav class="container__menu menu">
             <button class="menu__hamburger hamburger hamburger_emphatic" type="button">
                 <span class="hamburger__box">
@@ -211,6 +212,6 @@
     <script src="./src/scripts/i18n.js"></script>
     <script src="./src/scripts/popup.js"></script>
     <script src="./src/scripts/slider.js"></script>
-  
+    <script src="./src/scripts/main.js"></script>
 </body>
 </html>

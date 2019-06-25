@@ -1,30 +1,31 @@
-let sing = document.querySelector('.header__user-item_singUp');
-let login = document.querySelector('.header__user-item_logIn');
-let form1 = document.querySelector('.popup__singUp');
-let form2 = document.querySelector('.popup__logIn');
-let close = document.querySelector('.popup__close');
-let close2 = document.querySelector('.popup__close_log');
+!function(e){"function"!=typeof e.matches&&(e.matches=e.msMatchesSelector||e.mozMatchesSelector||e.webkitMatchesSelector||function(e){for(var t=this,o=(t.document||t.ownerDocument).querySelectorAll(e),n=0;o[n]&&o[n]!==t;)++n;return Boolean(o[n])}),"function"!=typeof e.closest&&(e.closest=function(e){for(var t=this;t&&1===t.nodeType;){if(t.matches(e))return t;t=t.parentNode}return null})}(window.Element.prototype);
 
-function showSingUp() {
-    form1.style.display = "block";
-    form2.style.display = "none";
-}
-function closeSingUp() {
-    form1.style.display = "none";
-}
+let modalButtons = document.querySelectorAll('.header__user-link'),
+    overlay = document.querySelector('.popup__overlay'),
+    closeButtons = document.querySelectorAll('.popup__close');
 
-function showLogin() {
-    form2.style.display = "block";
-    
-}
-function closeLogin() {
-    form2.style.display = "none";
-    form1.style.display = "none";
-}
-sing.addEventListener('click', showSingUp);
-close.addEventListener('click', closeSingUp);
-login.addEventListener('click', showLogin);
-close2.addEventListener('click', closeLogin);
+modalButtons.forEach(function(item){
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        let modalId = this.getAttribute('data-modal'),
+            modalElem = document.querySelector('.container__popup[data-modal="' + modalId + '"]');
+        modalElem.classList.add('active'); 
+        overlay.classList.add('active');
+    }); 
+}); 
+
+closeButtons.forEach(function(item){
+    item.addEventListener('click', function(e) {
+        let parentModal = this.closest('.container__popup');
+        parentModal.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+}); 
+
+overlay.addEventListener('click', function() {
+    document.querySelector('.container__popup.active').classList.remove('active');
+    this.classList.remove('active');
+});
 
 
 //cart
@@ -46,24 +47,3 @@ for(let i = 0; i < btn.length; i++) {
     btn[i].addEventListener('click', closeModal);
 }
 
-//change color
-
-var changeLang = document.querySelectorAll(".header__change-list")[0];
-var btns = changeLang.getElementsByClassName("change-list__item");
-for (let i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-  var current = document.getElementsByClassName("change-list__item_active");
-  current[0].className = current[0].className.replace(" change-list__item_active", "");
-  this.className += " change-list__item_active";
-  });
-}
-
-//humburger
-let hamburger = document.querySelector(".hamburger");
-let menu = document.querySelector(".menu__list");
-
-
-hamburger.addEventListener("click", function() {
-    hamburger.classList.toggle("is-active"); 
-    menu.classList.toggle("menu__list_show"); 
-});

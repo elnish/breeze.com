@@ -207,13 +207,11 @@ const messages = {
 new Vue({
     i18n,
     methods: {
-        setLang( lang) {
-            alert( lang)
+        setLang(lang) {
             i18n.locale = lang
         },
-        setCarrency ( cash) {
-        		alert( cash)
-            i18n.locale = cash
-        }
+        // setCarrency ( cash) { 
+        //     i18n.locale = cash
+        // }
     }
   }).$mount('#app')
