@@ -169,17 +169,17 @@ const messages = {
   }
 
   const numberFormats = {
-    'en-US': {
+    'en': {
       currency: {
         style: 'currency', currency: 'USD'
       }
     },
-    'de-DE': {
+    'gm': {
       currency: {
         style: 'currency', currency: 'EUR', currencyDisplay: 'symbol'
       }
     },
-    'en-GB': {
+    'fr': {
         currency: {
             style: 'currency', currency: 'GBP', currencyDisplay: 'symbol'
         }
@@ -188,30 +188,19 @@ const messages = {
   
   const i18n = new VueI18n({
     locale: 'en', 
+    fallbackLocale: 'en',
     messages,
     numberFormats
   })
   
-
-//   new Vue({
-//     i18n,
-//     methods: {
-//         // setLang(lang) {
-//         //     i18n.locale = lang
-//         // },
-//         setCarrency(cash) {
-//             i18n.locale = cash
-//         }
-//     }
-//   }).$mount('#app')
 new Vue({
     i18n,
     methods: {
         setLang(lang) {
             i18n.locale = lang
         },
-        // setCarrency ( cash) { 
-        //     i18n.locale = cash
-        // }
+        setCarrency ( cash) { 
+            i18n.locale = cash
+        }
     }
   }).$mount('#app')
