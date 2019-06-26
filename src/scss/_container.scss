@@ -26,6 +26,19 @@ body {
     &__menu {
         margin-top: 0;
     }
+    &__border {
+        width: 100%;
+        height: 3px;
+        &_top {
+            background-color: $hoverBgColor;
+        }
+        &_middle {
+            background-color: rgb(127, 203, 206);
+        }
+        &_bottom {
+            background-color: rgb(168, 220, 223);
+        }
+    }
   
 }
 

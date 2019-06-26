@@ -1,31 +1,22 @@
 .banner {
     padding: 25px 10%;
-    display: flex;
-    justify-content: space-between;
+    @include displayFlex(row, space-between, stretch);
     vertical-align: middle;
     flex-wrap: wrap;
     &__item {
         flex-basis: 310px;
         border: 1px solid rgb(224, 224, 224);
         border-radius: 4px;
-        position: relative;
+        @include displayFlex(row, space-evenly, center);
+        padding: 5px;
     }
     &__img {
-        margin: 15px;
-        float: left;
         width: 75px;
         height: 75px;
         &_large {
-            margin: 0 15px;
             width: 101px;
             height: 99px;
         }
-    }
-    &__text-block {
-       position: absolute;
-       top: 50%;
-       left: 40%;
-       transform: translate(0, -50%);
     }
     &__header {
         color: $textColor;
@@ -48,21 +39,8 @@
     .banner {
         justify-content: center;
         &__item {
+            padding: 15px 5px;
             margin: 25px;
-        }
-    }
-}
-
-@media only screen and (max-width: 429px) {
-    .banner {
-        &__item {
-            margin: 10px auto;
-        }
-        &__text-block {
-            position: absolute;
-            top: 50%;
-            left: 45%;
-            transform: translate(0, -50%);
         }
     }
 }

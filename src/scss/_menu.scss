@@ -5,23 +5,8 @@
         background-color: $barBgColor;
     }
     &__item {
-        width: auto;
-        height: 100%;
         text-align: center;
-        padding: 15px;
-        transition: background-color .4s ease-in-out;
-        &_active {
-            background-color: $hoverBgColor;
-            .menu__link {
-                color: $bgColor;  
-                font-weight: $boldFont;
-            }  
-        }
-        &_hover {
-            &:hover {
-                background-color: $liteHoverColor;
-            } 
-        }
+        margin-top: 11px;
     }
     &__link {
         color: $textColor;
@@ -30,7 +15,18 @@
         font-weight: inherit;
         text-transform: uppercase;
         letter-spacing: 1.4px;
-        transition: color .6s ease-in-out, font-weight .6s ease-in-out;
+        padding: 15px;
+        transition: color .6s ease-in-out, font-weight .6s ease-in-out,  background-color .4s ease-in-out;
+        &_active {
+            background-color: $hoverBgColor;
+            color: $bgColor;  
+            font-weight: $boldFont;
+        }
+        &_hover {
+            &:hover {
+                background-color: $liteHoverColor;
+            } 
+        }
     }
 }
 
@@ -45,21 +41,23 @@
 @media only screen and (max-width: 795px) {
     .menu {
         position: relative;
-        margin-bottom: 50px;
         &__list {
             display: none;
             height: auto;
-            margin-top: 50px;
             &_show {
                 display: block;
-                margin-top: 50px;
+                margin-top: 15px;
             }
         }
         &__item {
             width: 100%;
+            padding: 0;
+            margin-top: 0;
         }
         &__link {
             font-size: 22px;
+            display: block;
+            margin: 0;
         }
     }
 }

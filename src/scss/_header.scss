@@ -8,7 +8,6 @@
         height: 36px;
         background-color: $barBgColor;
     }
- 
     &__contact-img {
         width: 16px;
         height: 12px;
@@ -82,16 +81,14 @@
         top: 11px;
         cursor: pointer;
     }
+    &__user-box {
+        display: flex;
+    }
     &__user-item {
-        box-sizing: unset;
-        display: inline-block;
-        padding: 7px 15px;
         text-align: center;
-        border-radius: 2px;
-        transition: background-color .7s ease-in-out;
-        &_hover {
-            &:hover {
-                background-color: $hoverBgColor;
+        &_after {
+            &::after {
+                content: '|'
             }
         }
     }
@@ -102,10 +99,15 @@
         font-weight: inherit;
         letter-spacing: .3px;
         text-transform: capitalize;
-    }
-    &__separate {
         display: inline-block;
-        color: inherit;
+        padding: 7px 15px;
+        border-radius: 2px;
+        transition: background-color .7s ease-in-out;
+        &_hover {
+            &:hover {
+                background-color: $hoverBgColor;
+            }
+        }  
     }
     &__chart-box {
         display: unset;
@@ -164,7 +166,6 @@
             left: 50%;
             margin-left: -125px;
         }
-        
         &__content {
             @include displayFlex(column, center, center);
             height: auto;
@@ -185,6 +186,9 @@
         &__search-input {
             font-size: 16px;
         }
+        &__user-box {
+            margin-bottom: 10px;
+        }
     }
 }
 
@@ -193,7 +197,10 @@
         &__chart-box {
             position: absolute;
             right: 10%;
-            margin-top: 20px;
+            margin-top: 45px;
+        }
+        &__user-box {
+            margin-bottom: 0;
         }
     }
 }
@@ -209,17 +216,17 @@
         }
         &__user-item {
             display: block;
+            &_after {
+                &::after {
+                    content: ''
+                }
+            }
         }
         &__user-link {
             font-size: 16px;
         }
-        &__separate {
-            display: none;
-        }
         &__chart-box {
-            position: absolute;
-            right: 10%;
-            margin-top: 10px;
+            margin-top: 160px;
         }
     }
 }

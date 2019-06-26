@@ -1,20 +1,21 @@
 .change-list {
     &__item {
-        width: 35px;
-        height: 36px;
-        background-color: $changeBgColor;
         text-align: center;
-        padding-top: 5px;
-        transition: background-color .5s ease-in-out;
-        &_thin {
-            width: 27px;
-        }
+    }
+    &__link {
+        background-color: $changeBgColor;
+        color: $textColor;
+        padding: 5px 10px;
+        font-family: inherit;
+        font-size: 11px;
+        line-height: 24px;
+        text-transform: uppercase;
+        display: inline-block;
+        transition: color .5s ease-in-out, font-weight .5s ease-in-out, background-color .5s ease-in-out;
         &_active {
             background-color: $hoverBgColor;
-            .change-list__link {
-                color: $bgColor;  
-                font-weight: $boldFont;
-            }  
+            color: $bgColor;  
+            font-weight: $boldFont;
         }
         &_hover {
             &:hover {
@@ -22,17 +23,7 @@
             }
         }
     }
-    &__link {
-        color: $textColor;
-        font-family: inherit;
-        font-size: 11px;
-        line-height: 24px;
-        text-transform: uppercase;
-        transition: color .5s ease-in-out, font-weight .5s ease-in-out;
-    }
-   
 }
-
 
 @media only screen and (max-width: 1100px) {
     .change-list {

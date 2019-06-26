@@ -13,6 +13,9 @@
 </head>
 <body>
     <div class="container" id="app">
+        <div class="container__border container__border_top"></div>
+        <div class="container__border container__border_middle"></div>
+        <div class="container__border container__border_bottom"></div>
         <header class="container__header header">
             <div class="header__bar">
                 <div class="header__contact-box">
@@ -26,26 +29,26 @@
                 </p>
                 <div class="header__change-bar">
                     <ul class="header__change-list change-list">
-                        <li class="change-list__item change-list__item_hover change-list__item_active" @click="setLang('en')">
-                            <a href="#" hreflang="en" class="change-list__link">EN</a>
+                        <li class="change-list__item" @click="setLang('en')">
+                            <a href="#" hreflang="en" class="change-list__link change-list__link_hover change-list__link_active">EN</a>
                         </li>
-                        <li class="change-list__item change-list__item_hover" @click="setLang('fr')">
-                            <a href="#" hreflang="en" class="change-list__link">FR</a>
+                        <li class="change-list__item" @click="setLang('fr')">
+                            <a href="#" hreflang="en" class="change-list__link change-list__link_hover">FR</a>
                         </li>
-                        <li class="change-list__item change-list__item_hover" @click="setLang('gm')">
-                            <a href="#" hreflang="en" class="change-list__link">GM</a>
+                        <li class="change-list__item" @click="setLang('gm')">
+                            <a href="#" hreflang="en" class="change-list__link change-list__link_hover">GM</a>
                         </li>
                     </ul>
                     
                     <ul class="header__change-list change-list">
-                        <li class="change-list__item change-list__item_thin change-list__item_hover change-list__item_active" @click="setCarrency('en')"> 
-                            <a href="#" class="change-list__link">&#36;</a>
+                        <li class="change-list__item" @click="setCarrency('en')"> 
+                            <a href="#" class="change-list__link change-list__link_hover change-list__link_active">&#36;</a>
                         </li>
-                        <li class="change-list__item change-list__item_thin change-list__item_hover" @click="setCarrency('gm')"> 
-                            <a href="#" class="change-list__link">&euro;</a>
+                        <li class="change-list__item" @click="setCarrency('gm')"> 
+                            <a href="#" class="change-list__link change-list__link_hover">&euro;</a>
                         </li>
-                        <li class="change-list__item change-list__item_thin change-list__item_hover" @click="setCarrency('fr')">
-                            <a href="#" class="change-list__link">&pound;</a>
+                        <li class="change-list__item" @click="setCarrency('fr')">
+                            <a href="#" class="change-list__link change-list__link_hover">&pound;</a>
                         </li>
                     </ul>
                 </div>
@@ -56,19 +59,27 @@
                     <input class="header__search-input header__search-input_focus" type="search" name="search" :placeholder="$t('placeholder')">
                     <img class="header__search-icon" src="./src/images/search.png" alt="search">
                 </div>
-                <ul class="header__user-menu">
-                    <li class="header__user-item header__user-item_hover"><a href="#" class="header__user-link">{{ $t("userMenu.account") }}</a></li>
-                    <span class="header__separate">|</span>
-                    <li class="header__user-item header__user-item_hover"><a href="#" class="header__user-link">{{ $t("userMenu.wishlist") }}</a></li>
-                    <span class="header__separate">|</span>
-                    <li class="header__user-item header__user-item_hover header__user-item_logIn"><a href="#" class="header__user-link" data-modal="1">{{ $t("userMenu.login") }}</a></li>
-                    <span class="header__separate">|</span>
-                    <li class="header__user-item header__user-item_hover header__user-item_singUp"><a href="#" class="header__user-link" data-modal="2">{{ $t("userMenu.singup") }}</a></li>
-                    <li class=""><a href="#" class="header__chart-box  header__chart-box_hover">
-                            <img class="header__chart-icon" src="./src/images/icon_cart.png" alt="cart">
-                            <span class="header__chart-text">{{ $t("cartModal.cart") }} {{ $n(0, 'currency') }}</span>
-                    </a></li>
-                </ul> 
+                <div class="header__user-box">
+                    <ul class="header__user-menu">
+                        <li class="header__user-item header__user-item_after">
+                            <a href="#" class="header__user-link header__user-link_hover">{{ $t("userMenu.account") }}</a>
+                        </li>
+                        <li class="header__user-item header__user-item_after">
+                            <a href="#" class="header__user-link header__user-link_hover">{{ $t("userMenu.wishlist") }}</a>
+                        </li>
+                        <li class="header__user-item header__user-item_after header__user-item_logIn">
+                            <a href="#" class="header__user-link header__user-link_hover" data-modal="1">{{ $t("userMenu.login") }}</a>
+                        </li>
+                        <li class="header__user-item header__user-item_singUp">
+                            <a href="#" class="header__user-link header__user-link_hover" data-modal="2">{{ $t("userMenu.singup") }}</a>
+                        </li>
+                    </ul> 
+                    <a href="#" class="header__chart-box  header__chart-box_hover">
+                        <img class="header__chart-icon" src="./src/images/icon_cart.png" alt="cart">
+                        <span class="header__chart-text">{{ $t("cartModal.cart") }} {{ $n(0, 'currency') }}</span>
+                    </a>
+                </div>
+               
                 <div class="header__chart-modal chart-modal">
                     <p class="chart-modal__header">{{ $t("cartModal.header") }}</p>
                     
@@ -96,26 +107,26 @@
             
         </header>
       
-        <form class="container__popup popup popup__singUp" data-modal="1">
+        <form class="container__popup popup" data-modal="1">
             <h2 class="popup__header">{{ $t("form.header1") }}</h2>
             <p class="popup__item">
-                <label for="Email" class="popup__label">{{ $t("form.email") }}</label>
-                <input class="popup__input popup__input_text" id="Email" name="Email" type="text">
+                <label for="EmailSignUp" class="popup__label">{{ $t("form.email") }}</label>
+                <input class="popup__input popup__input_text" id="EmailSignUp" name="Email" type="text">
             </p>
             <p class="popup__item">
-                <label for="password" class="popup__label">{{ $t("form.password") }}</label>
-                <input class="popup__input popup__input_password" id="password" name="password" type="password">
+                <label for="passwordSignUp" class="popup__label">{{ $t("form.password") }}</label>
+                <input class="popup__input popup__input_password" id="passwordSignUp" name="password" type="password">
             </p>
             <p class="popup__item">
-                <label for="confirm_password" class="popup__label">{{ $t("form.confirm") }}</label>
-                <input class="popup__input popup__input_password" id="confirm_password" name="password" type="password">
+                <label for="confirmPassword" class="popup__label">{{ $t("form.confirm") }}</label>
+                <input class="popup__input popup__input_password" id="confirmPassword" name="password" type="password">
             </p>
             <p class="popup__item">
                 <button class="popup__button popup__button_hover" type="submit">{{ $t("form.btn1") }}</button>
             </p>
             <img src="./src/images/del.png" alt="close" class="popup__close popup__close_hover">
         </form>
-        <form class="container__popup popup popup__logIn" data-modal="2">
+        <form class="container__popup popup" data-modal="2">
             <h2 class="popup__header">{{ $t("form.header2") }}</h2>
             <p class="popup__item">
                 <label for="Email" class="popup__label">{{ $t("form.email") }}</label>
@@ -126,7 +137,6 @@
                 <input class="popup__input popup__input_password" id="password" name="password" type="password">
             </p>
                 <button class="popup__button popup__button_hover" type="submit">{{ $t("form.btn2") }}</button>
-            </p>
             <img src="./src/images/del.png" alt="close" class="popup__close popup__close_log popup__close_hover">
         </form>
         <div class="popup__overlay"></div>
@@ -137,12 +147,12 @@
                 </span>
             </button>
             <ul class="menu__list">
-                <li class="menu__item menu__item_active menu__item_hover"><a href="#" class="menu__link">{{ $t("menu.1") }}</a></li>
-                <li class="menu__item menu__item_hover"><a href="#" class="menu__link">{{ $t("menu.2") }}</a></li>
-                <li class="menu__item menu__item_hover"><a href="#" class="menu__link">{{ $t("menu.3") }}</a></li>
-                <li class="menu__item menu__item_hover"><a href="#" class="menu__link">{{ $t("menu.4") }}</a></li>
-                <li class="menu__item menu__item_hover"><a href="#" class="menu__link">{{ $t("menu.5") }}</a></li>
-                <li class="menu__item menu__item_hover"><a href="#" class="menu__link">{{ $t("menu.6") }}</a></li>
+                <li class="menu__item"><a href="#" class="menu__link menu__link_hover menu__link_active">{{ $t("menu.1") }}</a></li>
+                <li class="menu__item"><a href="#" class="menu__link menu__link_hover">{{ $t("menu.2") }}</a></li>
+                <li class="menu__item"><a href="#" class="menu__link menu__link_hover">{{ $t("menu.3") }}</a></li>
+                <li class="menu__item"><a href="#" class="menu__link menu__link_hover">{{ $t("menu.4") }}</a></li>
+                <li class="menu__item"><a href="#" class="menu__link menu__link_hover">{{ $t("menu.5") }}</a></li>
+                <li class="menu__item"><a href="#" class="menu__link menu__link_hover">{{ $t("menu.6") }}</a></li>
             </ul>
             
         </nav>
