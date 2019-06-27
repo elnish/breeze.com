@@ -7,7 +7,8 @@
     <title>Breeze</title>
     <link rel="shortcut icon" href="./src/images/fv.png" type="image/png">
     <link rel="stylesheet" href="./src/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Bitter|Noto+Sans+HK&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+HK&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bitter&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-i18n/dist/vue-i18n.js"></script>
 </head>
@@ -29,32 +30,33 @@
                 </p>
                 <div class="header__change-bar">
                     <ul class="header__change-list change-list">
-                        <li class="change-list__item" @click="setLang('en')">
-                            <a href="#" hreflang="en" class="change-list__link change-list__link_hover change-list__link_active">EN</a>
+                        <li class="change-list__item">
+                            <a href="#" hreflang="en" class="change-list__link change-list__link_hover change-list__link_active" @click="setLang('en')">EN</a>
                         </li>
-                        <li class="change-list__item" @click="setLang('fr')">
-                            <a href="#" hreflang="en" class="change-list__link change-list__link_hover">FR</a>
+                        <li class="change-list__item">
+                            <a href="#" hreflang="en" class="change-list__link change-list__link_hover" @click="setLang('fr')">FR</a>
                         </li>
-                        <li class="change-list__item" @click="setLang('gm')">
-                            <a href="#" hreflang="en" class="change-list__link change-list__link_hover">GM</a>
+                        <li class="change-list__item">
+                            <a href="#" hreflang="en" class="change-list__link change-list__link_hover" @click="setLang('gm')">GM</a>
                         </li>
                     </ul>
                     
                     <ul class="header__change-list change-list">
-                        <li class="change-list__item" @click="setCarrency('en')"> 
-                            <a href="#" class="change-list__link change-list__link_hover change-list__link_active">&#36;</a>
+                        <li class="change-list__item"> 
+                            <a href="#" class="change-list__link change-list__link_hover change-list__link_active" @click="setCarrency('en')">&#36;</a>
                         </li>
-                        <li class="change-list__item" @click="setCarrency('gm')"> 
-                            <a href="#" class="change-list__link change-list__link_hover">&euro;</a>
+                        <li class="change-list__item"> 
+                            <a href="#" class="change-list__link change-list__link_hover" @click="setCarrency('gm')">&euro;</a>
                         </li>
-                        <li class="change-list__item" @click="setCarrency('fr')">
-                            <a href="#" class="change-list__link change-list__link_hover">&pound;</a>
+                        <li class="change-list__item">
+                            <a href="#" class="change-list__link change-list__link_hover" @click="setCarrency('fr')">&pound;</a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="header__content">
-                <img src="./src/images/logo.png" alt="logo" class="header__logo">
+                <a href="#" class="header__logo"> <img src="./src/images/logo.png" alt="logo" class="header__logo-img"></a>
+               
                 <div class="header__search-box">
                     <input class="header__search-input header__search-input_focus" type="search" name="search" :placeholder="$t('placeholder')">
                     <img class="header__search-icon" src="./src/images/search.png" alt="search">
@@ -107,34 +109,34 @@
             
         </header>
       
-        <form class="container__popup popup" data-modal="1">
+        <form method="POST" class="container__popup popup" data-modal="2">
             <h2 class="popup__header">{{ $t("form.header1") }}</h2>
             <p class="popup__item">
                 <label for="EmailSignUp" class="popup__label">{{ $t("form.email") }}</label>
-                <input class="popup__input popup__input_text" id="EmailSignUp" name="Email" type="text">
+                <input class="popup__input popup__input_text" id="EmailSignUp" name="Email" type="text" required>
             </p>
             <p class="popup__item">
                 <label for="passwordSignUp" class="popup__label">{{ $t("form.password") }}</label>
-                <input class="popup__input popup__input_password" id="passwordSignUp" name="password" type="password">
+                <input class="popup__input popup__input_password" id="passwordSignUp" name="password" type="password" required>
             </p>
             <p class="popup__item">
                 <label for="confirmPassword" class="popup__label">{{ $t("form.confirm") }}</label>
-                <input class="popup__input popup__input_password" id="confirmPassword" name="password" type="password">
+                <input class="popup__input popup__input_password" id="confirmPassword" name="password" type="password" required>
             </p>
             <p class="popup__item">
                 <button class="popup__button popup__button_hover" type="submit">{{ $t("form.btn1") }}</button>
             </p>
             <img src="./src/images/del.png" alt="close" class="popup__close popup__close_hover">
         </form>
-        <form class="container__popup popup" data-modal="2">
+        <form method="POST" class="container__popup popup" data-modal="1">
             <h2 class="popup__header">{{ $t("form.header2") }}</h2>
             <p class="popup__item">
                 <label for="Email" class="popup__label">{{ $t("form.email") }}</label>
-                <input class="popup__input popup__input_text" id="Email" name="Email" type="text">
+                <input class="popup__input popup__input_text" id="Email" name="Email" type="text" required>
             </p>
             <p class="popup__item">
                 <label for="password" class="popup__label">{{ $t("form.password") }}</label>
-                <input class="popup__input popup__input_password" id="password" name="password" type="password">
+                <input class="popup__input popup__input_password" id="password" name="password" type="password" required>
             </p>
                 <button class="popup__button popup__button_hover" type="submit">{{ $t("form.btn2") }}</button>
             <img src="./src/images/del.png" alt="close" class="popup__close popup__close_log popup__close_hover">
@@ -203,7 +205,7 @@
                     </div> 
                 </div>
                 <div class="banner__item">
-                    <img src="./src/images/br.png" alt="smells" class="banner__img banner__img_large">
+                    <img src="./src/images/smells.png" alt="smells" class="banner__img banner__img_large">
                     <div class="banner__text-block">
                         <h4 class="banner__header">{{ $t("banner.header2") }}</h4>
                         <p class="banner__text">{{ $t("banner.text2") }}</p>

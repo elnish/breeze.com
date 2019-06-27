@@ -49,6 +49,11 @@
         @include displayFlex(row, space-between, center);
         border-bottom: 1px solid rgb(224, 224, 224);
     }
+    &__logo-img {
+        width: 132px;
+        height: 63px;
+        cursor: pointer;
+    }
     &__search-box {
         flex-shrink: 2;
         height: 35px;
